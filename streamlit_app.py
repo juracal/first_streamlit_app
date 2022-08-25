@@ -1,6 +1,6 @@
 import streamlit
 import pandas as pd
-
+import requests
 streamlit.title(" My parents new healthy diner")
 streamlit.header('Breakfast Menu')
 streamlit.text('🥣 Omega 3 & Blueberry Oatmeal')
@@ -20,3 +20,8 @@ fruits_to_show = my_fruit_list if fruits_selected==[] else my_fruit_list.loc[fru
 # Display the table on the page.
 
 streamlit.dataframe(fruits_to_show)
+
+
+streamlit.header("Fruityvice Fruit Advice!")
+fruityvice_response = requests.get("https://fruityvice.com/api/fruit/watermelon")
+streamlit.text(fruityvice_response.json())
