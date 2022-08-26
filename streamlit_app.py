@@ -33,11 +33,11 @@ fruityvice_normalized = pd.json_normalize(fruityvice_response.json())
 streamlit.dataframe(fruityvice_normalized)
 
 my_cnx =  snowflake.connector.connect(
-  user= "juracal"
-  password= "Mel.Viento16"
-  account= "cq44194.ca-central-1.aws"
-  warehouse="compute_wh"
-  database="pc_rivery_db"
+  user= "juracal",
+  password= "Mel.Viento16",
+  account= "cq44194.ca-central-1.aws",
+  warehouse="compute_wh",
+  database="pc_rivery_db",
   schema="public"
 )
 streamlit.write("DB username:", streamlit.secrets["snowflake"]["database"])
