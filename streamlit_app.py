@@ -34,7 +34,12 @@ streamlit.dataframe(fruityvice_normalized)
 
 my_cnx = snowflake.connector.connect(**streamlit.secrets["snowflake"])
 my_cur = my_cnx.cursor()
-my_cur.execute("use role accountadmin;select * from pc_ribery_db.public.fruit_load_list")
+my_cur.execute("use role accountadmin")
+my_cur.execute("use database pc_rivery_db")
+my_cur.execute("use schema public")
+my_cur.execute("select * from pc_ribery_db.public.fruit_load_list")
 my_data_rows = my_cur.fetchall()
 streamlit.text("The fruit load contains: ")
 streamlit.dataframe(my_data_rows)
+
+
